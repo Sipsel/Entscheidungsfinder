@@ -14,7 +14,6 @@ hr{
     margin: 0 0 0 0;
     padding: 0 0 0 0;
     width: 100%;
-
 }
 #main
 {
@@ -24,7 +23,10 @@ hr{
     width:30%;
     color: #f2f5f4;
 }
-
+#main-title
+{
+    font-size: 15px;
+}
 .btn
 {
     width: 100%;
@@ -40,8 +42,7 @@ hr{
 .btn .arrow
 {
     cursor: pointer;
-    transition: 2s;
-    display: none;
+    transition: 1s;
     height: 100%;
     font-size: 70px;
     margin:auto;
@@ -49,11 +50,11 @@ hr{
 .btn:hover .arrow
 {
     cursor: pointers;
-    transition: 2s;
-    display:block;
+    transition: 1s;
     height: 100%;
     font-size: 70px;
     margin:auto;
+    color:#ee4d2e;
 }
 #questions
 {
@@ -73,4 +74,14 @@ hr{
 #questions
 {
     margin:auto;
+}
+.fadein
+{
+    transition: 1s;
+    opacity: 1;
+}
+.fadeout
+{
+    transition: 0.75s;
+    opacity: 0;
 }
