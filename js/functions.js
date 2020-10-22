@@ -2,7 +2,7 @@ function main()
 {
     node_one = new Node("Aquistion of a new System","Adding an Application to the existing Product",1)
     node_two = new Node("Security Issue","A security incident has occured and you want to report",2)
-    node_three = new Node("Inventorying new Application","You have succesfully added an application and want to inventory the change",2)
+    node_three = new Node("Inventorying new Application","You have succesfully added an application and want to inventory the change",3)
     node_one_one = new Node("Developing new application","Instead of using third party software you want to develop your own",4)
     node_one_two = new Node("Adding third party software","You want to use third party software to enchance the prodcut",5)
     // naming convention for the nodes
@@ -14,10 +14,13 @@ function main()
         3:node_three,
     }
     show_nodes(nodes);
-
-
-
-
+}
+function question_press(param)
+{
+    let node = nodes[param.id]
+    nodes = {}
+    nodes = node.nextnodes
+    show_nodes(nodes)
 }
 function show_nodes(nodes) {
     
@@ -30,7 +33,7 @@ function show_nodes(nodes) {
             question.children[i].remove()
         }
     }
-    // hier habe ich die versucht wie in python mit einem dictonary zu arbeiten, das sollte uns später einiges an arbeit erleichtern
+    // hier habe ich versucht wie in python mit einem dictonary zu arbeiten, das sollte uns später einiges an arbeit erleichtern
     for(var key in nodes) 
     {
         let top_div = document.createElement("div")
@@ -43,7 +46,8 @@ function show_nodes(nodes) {
 
         top_div.classList.add("question")
         top_div.classList.add("btn")
-
+        top_div.id = nodes[key].id;
+        top_div.onclick = function(){question_press(this)}
         title.innerHTML = nodes[key].node_title;
         text.innerHTML = nodes[key].node_text;
         arrow_span.innerHTML = "->";
