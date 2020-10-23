@@ -1,12 +1,13 @@
 class Node
 {
     
-    constructor(title, text,id)
+    constructor(title, text,id, parent_node)
     {
         this.title = title;
         this.text = text;
         this.nextnodes = {};
-        this.id = id;
+        this.id = id
+        this.parent_node = parent_node;
     }
     get_nextnodes(node_nr)
     {

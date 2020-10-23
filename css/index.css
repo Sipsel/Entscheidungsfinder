@@ -42,7 +42,7 @@ hr{
 .btn .arrow
 {
     cursor: pointer;
-    transition: 1s;
+    transition: 0.5s;
     height: 100%;
     font-size: 70px;
     margin:auto;
@@ -50,11 +50,11 @@ hr{
 .btn:hover .arrow
 {
     cursor: pointers;
-    transition: 1s;
+    transition: 0.5s;
     height: 100%;
-    font-size: 70px;
+    font-size: 80px;
     margin:auto;
-    color:#ee4d2e;
+    
 }
 #questions
 {
@@ -62,7 +62,7 @@ hr{
 }
 .question
 {  
-    border-bottom: 2px solid white;
+    border-top: 2px solid white;
 
     display: grid;
     grid-template-columns: 80% 20%;
@@ -75,6 +75,12 @@ hr{
 {
     margin:auto;
 }
+.title-nav
+{
+    cursor: pointer;
+    border: solid 1px white;
+    padding: 5px 5px 5px 5px;
+}
 .fadein
 {
     transition: 1s;
@@ -82,6 +88,6 @@ hr{
 }
 .fadeout
 {
-    transition: 0.75s;
+    transition: 0.5s;
     opacity: 0;
 }
