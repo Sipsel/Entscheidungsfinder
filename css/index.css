@@ -1,3 +1,13 @@
+@keyframes slide-right {
+    0% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+    }
+    100% {
+      -webkit-transform: translateX(100px);
+              transform: translateX(100px);
+    }
+  }
 html,body
 {
     height: 100%;
@@ -33,10 +43,14 @@ hr{
     height: 100%;
     font-family: apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+.btn h3
+{
+    font-size: 25px;
+}
 .btn:hover
 {
     background-color: #008fff ;
-    transition: 1s;
+    transition: 0.5s;
     cursor: pointer;
 }
 .btn .arrow
@@ -49,10 +63,10 @@ hr{
 }
 .btn:hover .arrow
 {
+    font-size: 80px;
     cursor: pointers;
     transition: 0.5s;
     height: 100%;
-    font-size: 80px;
     margin:auto;
     
 }
@@ -78,8 +92,14 @@ hr{
 .title-nav
 {
     cursor: pointer;
-    border: solid 1px white;
+   
+    border-radius: 4px;
     padding: 5px 5px 5px 5px;
+}
+.title-nav:hover
+{
+    transition: 0.75s;
+    background-color: #008fff;
 }
 .fadein
 {

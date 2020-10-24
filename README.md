@@ -1,1 +1,2 @@
 # Entscheidungsfinder
+## Authors

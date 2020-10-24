@@ -94,7 +94,7 @@ async function show_nodes(nodes) {
         top_div.onclick = function(){question_press(this)}
         title.innerHTML = nodes[key].node_title;
         text.innerHTML = nodes[key].node_text;
-        arrow_span.innerHTML = "->";
+        arrow_span.innerHTML = "&rarr;";
         arrow_span.classList.add("arrow");
 
         question.appendChild(top_div);
