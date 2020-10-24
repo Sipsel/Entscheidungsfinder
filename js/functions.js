@@ -81,7 +81,7 @@ async function show_nodes(nodes) {
     {
         let top_div = document.createElement("div")
         let content_div = document.createElement("div")
-        let title = document.createElement("h3")
+        let title = document.createElement("h2")
         let text = document.createElement("p")
         let arrow_div = document.createElement("div")
         let arrow_span = document.createElement("span")
