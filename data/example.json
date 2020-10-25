@@ -1,0 +1,37 @@
+{
+    "ciso":
+    {
+        "title":"CISO",
+        "text" : "",
+        "id":1,
+        "parent_node":""
+    },
+    "po":
+    {
+        "title":"Product Owner",
+        "text" : "",
+        "id":2,
+        "parent_node":""
+    },
+    "pm":
+    {
+        "title":"Product Manager",
+        "text" : "",
+        "id":3,
+        "parent_node":""
+    },
+    "so":
+    {
+        "title":"Security Operations",
+        "text" : "",
+        "id":4,
+        "parent_node":""
+    },
+    "ciso_repositories":
+    {
+        "title":"List all Repositories",
+        "text" : "You forgot where all repositories are stored? Click here!",
+        "id":5,
+        "parent_node":"1"
+    }
+}

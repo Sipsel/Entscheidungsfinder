@@ -3,65 +3,119 @@ function sleep(ms) {
   }
 function main()
 {
+    /*
     ciso = new Node("CISO","",0,null)
     po = new Node("Product Owner","",1,null)
     pm = new Node("Product Manager","",2,null)
-    ao = new Node("Application Owner","",3,0)
-    so = new Node("Security Operations","",4,0)
+    ao = new Node("Application Owner","",3,null)
+    so = new Node("Security Operations","",4,null)
     ciso_list_repos = new Node("List all Repositories","You forgot where all repositories are stored? Click here!",5,1)
+    ciso_list_repos_test = new Node("test","test",6,5)
+    so_test = new Node("ada","dadaa",7,4)
+    so_test_test = new Node("ada","adas",8,7)
     ciso.add_node(ciso_list_repos)
-    // naming convention for the nodes
-    num_nodes = 0
-    nodes = {
-        0:{
-            0:ciso,
-            1:po,
-            2:pm,
-            3:ao,
-            4:so
-        },
-        
-    }
-    show_nodes(nodes[num_nodes]);
-
-}
-
-function goto_node(param) 
-{
-    /*
-    param sollte die form t-xy haben
-    x = eben
-    y = fragen auf ebene
-    t-xy
-    0123
- */   
+    ciso_list_repos.add_node(ciso_list_repos_test)
+    so.add_node(so_test)
     
-    let ebene = param.id[2]         // getting x
-    num_nodes = ebene
-    let ebene_frage = param.id[3]   //getting y
-    let h_title = document.getElementById("main-title");
-    //console.log([ebene,ebene_frage]);
-    //console.log([typeof(nodes[ebene][ebene_frage].get_title),nodes[ebene][ebene_frage].get_title])
-    if(typeof(nodes[ebene][ebene_frage].get_title) == "undefined")
-    {
-        h_title.innerHTML = "What is your Role?"
-    }else
-    {
-        h_title.innerHTML = nodes[ebene][ebene_frage].get_title;
-    }
-    show_nodes(nodes[ebene])
+    naming convention for the nodes
+    num_nodes = 0
+
+    nodes = [ciso,po,pm,ao,so]
+    
+    show_nodes(nodes);
+    */
+    nodet = new Node_tree(node_data);
+    nodet.contruct_tree();
+    nodet.display()
+    //console.log(find_node(nodet.nodes,6))
 }
-function question_press(param)
+function find_parent_node(nodes,node)
 {
-    let node = nodes[num_nodes][param.id]
-    //console.log(param)
-    //console.log(node)
+    let obj_count = nodes.length
+    let i = 0;
+    let result; 
+    while(i<obj_count)
+    {
+        //console.log(result)
+        //console.log([nodes[i]],i,nodes[i].id == node.parent_node)
+        if(nodes[i].id == node.parent_node)
+        {
+            result = nodes[i];
+            return result;
+        }
+        //find_parent_node(nodes[elem],node)
+        result = find_parent_node(nodes[i].nextnodes,node);
+
+        i++;
+
+        if(i>obj_count)
+        {
+            return null;
+        }
+        else if(result != undefined)
+        {
+            return result
+        }
+    }
+    return result
+    //return true
+}
+function find_node(nodes, node_id)
+{
+    let obj_count = nodes.length
+    let i = 0;
+    let result; 
+    while(i<obj_count)
+    {
+        //console.log(result)
+        //console.log(nodes[i].id == node_id,result)
+
+        if(nodes[i].id == node_id)
+        {
+            result = nodes[i];
+            return result;
+        }
+        //find_parent_node(nodes[elem],node)
+        result = find_node(nodes[i].nextnodes,node_id);
+        
+        i++;
+
+        if(i>obj_count)
+        {
+            return;
+        }
+        else if(result != undefined)
+        {
+            return result
+        }
+    }
+    return result
+}
+
+//json in ein array packen
+function parseJSON(node_data,arr)
+{
+    arr = []
+    for(elem in node_data)
+    {
+        let node = node_data[elem]
+        //console.log(node)
+        arr.push(
+            new Node(node.title,node.text,node.id,node.parent_node)
+        )
+    }
+    return arr
+}
+
+
+function question_press(elem)
+{
+    let node_tree = nodet
+    let node = find_node(node_tree.nodes,elem.id)
     let h_title = document.getElementById("main-title")
     h_title.innerHTML = `${h_title.innerHTML} > ${node.node_title}` 
+    show_nodes(node.nextnodes)
 
-    num_nodes++;
-    nodes[num_nodes] = node.nextnodes
-    show_nodes(nodes[num_nodes])
 }
 async function show_nodes(nodes) {
     
@@ -77,6 +131,7 @@ async function show_nodes(nodes) {
         }
     }
     // hier habe ich versucht wie in python mit einem dictonary zu arbeiten, das sollte uns später einiges an arbeit erleichtern
+    // 25.10.2020 neue Entwicklung dictonaries machen alles nur noch schlimmer also back zu arrays :)
     for(var key in nodes) 
     {
         let top_div = document.createElement("div")
