@@ -41,5 +41,12 @@ var node_data = {
         "title" :"Information Security Expert",
         "text"  : "",
         "id"    : 5,
+    },
+    "":
+    {
+        "title":'Repositoriy Checklist',
+        "text" :"Lorem ipsum dolor sit amet, <br>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus quis varius quam quisque id diam vel quam elementum. Dignissim suspendisse in est ante in. Dui faucibus in ornare quam viverra orci. Gravida quis blandit turpis cursus in hac habitasse platea. Sit amet facilisis magna etiam tempor orci eu lobortis. Eget magna fermentum iaculis eu non diam. Dictumst vestibulum rhoncus est pellentesque. Eget aliquet nibh praesent tristique magna sit amet purus. Vitae turpis massa sed elementum. Suspendisse ultrices gravida dictum fusce ut. Vel pharetra vel turpis nunc eget. Sit amet dictum sit amet justo donec enim.",
+        "id":7,
+        "parent_node":6,
     }
 }

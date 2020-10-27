@@ -31,7 +31,7 @@ class Node_tree
             // 2.1 baum nach schon vorhandenen nodes, also ob es die parentnode schon im baum gibt -> am besten rekursiv #nice challenge bro
             for(elem in nodes)
             {
-                let p_node = find_parent_node(temp_tree,nodes[elem])
+                let p_node = find_node(temp_tree,nodes[elem].parent_node)
 
                 //console.log([p_node == undefined,p_node])
                 if(p_node == undefined)
