@@ -22,12 +22,19 @@
     <meta name="theme-color" content="#ffffff">
 </head>
 <body onload="main()">
+    <nav>
+        <button onclick="nodet.show_menu()">Display Menu</button>
+        <button onclick="nodet.show_tree()">Display Tree</button>
+    </nav>
     <div id="main">
         <div id="main-wrapper">
             <h1 id="main-title"><span id="t-00" onclick="goto_node(this)" class="title-nav">What is your Role?</span></h1>
             <div id="questions">
             </div>
-        </div>  
+        </div>
+    </div>
+    <div id="tree" class="hidden tree">
+            
     </div>
 </body>
 <script src="js/dev_data_json.js"></script>

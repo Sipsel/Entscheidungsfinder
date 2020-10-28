@@ -47,11 +47,44 @@ class Node_tree
             // 2.1.1 gibt es schon -> hinzufuegen
             // 2.1.2 gibt es noch nicht -> auf neuen ebene hinzufuegen
         }
+        
+        
     }
-    display()
-    {
+    add_to_dom(){
         show_nodes(this.nodes)
+        let tree = document.getElementById("tree")
+        let ul = document.createElement("ul")
+        ul.appendChild(construct_tree(this.nodes))
+        tree.appendChild(ul)
     }
+    show_tree()
+    {
+        this.hide_menu()
+        let tree = document.getElementById("tree")
+        tree.classList.remove("hidden")
+        tree.classList.add("shown")
+    }
+    hide_tree() {
+        let tree = document.getElementById("tree");
+        tree.classList.remove("shown");
+        tree.classList.add("hidden");
+    }
+    show_menu()
+    {
+        this.hide_tree();
+        let menu = document.getElementById("main-wrapper")
+        menu.classList.remove("hidden")
+        menu.classList.add("show")
+        //
+    }
+    hide_menu()
+    {
+        let menu = document.getElementById("main-wrapper")
+        menu.classList.remove("shown")
+        menu.classList.add("hidden")
+    }
+
+    
 }
 class Node
 {
